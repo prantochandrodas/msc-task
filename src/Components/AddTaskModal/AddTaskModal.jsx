@@ -1,6 +1,8 @@
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 
-const AddTaskModal = ({ state, setState }) => {
+const AddTaskModal = ({ state, setState,handelAddTask }) => {
+   
     return (
         <div>
             {
@@ -23,29 +25,29 @@ const AddTaskModal = ({ state, setState }) => {
                                 </div>
 
                                 {/* form to add task */}
-                                <form action="" className='p-4'>
+                                <form onSubmit={handelAddTask} className='p-4'>
 
                                     {/* title task */}
                                     <div className="col-span-6 sm:col-span-3">
-                                        <label htmlFor="Title" className="block text-sm font-medium text-gray-700">
+                                        <label htmlFor="title" className="block text-sm font-medium text-gray-700">
                                             Title
                                         </label>
-                                        <input type="text" id="Title" name="title" className="mt-1 w-full rounded-md border py-2 border-gray-200 bg-white text-sm text-gray-700 shadow-sm" />
+                                        <input required  type="text" id="title" name="title" className="mt-1 w-full rounded-md border py-2 border-gray-200 bg-white text-sm text-gray-700 shadow-sm" />
                                     </div>
                                     {/* Description task */}
                                     <div className="col-span-6 sm:col-span-3">
-                                        <label htmlFor="Description" className="block text-sm font-medium text-gray-700">
+                                        <label htmlFor="description" className="block text-sm font-medium text-gray-700">
                                             Description
                                         </label>
-                                        <textarea name="description" className="mt-1 w-full rounded-md border py-2 border-gray-200 bg-white text-sm text-gray-700 shadow-sm" id="description" cols="30" rows="5"></textarea>
+                                        <textarea required name="description" className="mt-1 w-full rounded-md border py-2 border-gray-200 bg-white text-sm text-gray-700 shadow-sm" id="description" cols="30" rows="5"></textarea>
                                     </div>
 
                                     {/* Status task */}
                                     <div className="col-span-6 sm:col-span-3">
-                                        <label htmlFor="Description" className="block text-sm font-medium text-gray-700">
+                                        <label htmlFor="status" className="block text-sm font-medium text-gray-700">
                                             Status
                                         </label>
-                                        <select name="status" className='mt-1 w-full rounded-md border py-2 border-gray-200 bg-white text-sm text-gray-700 shadow-sm'>
+                                        <select required name="status" className='mt-1 w-full rounded-md border py-2 border-gray-200 bg-white text-sm text-gray-700 shadow-sm'>
                                             <option value="">Select Status</option>
                                             <option value="todo">Todo</option>
                                             <option value="inreview">Inreview</option>
@@ -53,8 +55,8 @@ const AddTaskModal = ({ state, setState }) => {
                                         </select>
                                     </div>
                                     <div className="flex items-center gap-3 py-4 mt-5">
-                                        <button className="px-6 py-2 text-white bg-indigo-600 rounded-md outline-none ring-offset-2 ring-indigo-600 focus:ring-2"
-                                            onClick={() => setState(false)}
+                                        <button type='submit' className="px-6 py-2 text-white bg-indigo-600 rounded-md outline-none ring-offset-2 ring-indigo-600 focus:ring-2"
+                                           
                                         >
                                             Add
                                         </button>
