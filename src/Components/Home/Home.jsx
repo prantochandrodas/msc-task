@@ -85,7 +85,7 @@ const Home = () => {
             <AddTaskModal state={state} handelAddTask={handelAddTask} setState={setState}></AddTaskModal>
           {/* task dashboard  */}
             <div>
-                <Tasks task={task}></Tasks>
+                <Tasks task={task} refetch={refetch}></Tasks>
             </div>
         </div>
     );
